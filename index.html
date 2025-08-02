@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life of Iron Man - 2D Side Scroller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Game Header -->
+        <div class="game-header">
+            <h1>Life of Iron Man</h1>
+            <div class="score-container">
+                <span>Score: <span id="score">0</span></span>
+                <span>Lives: <span id="lives">3</span></span>
+            </div>
+        </div>
+
+        <!-- Game Canvas -->
+        <canvas id="gameCanvas" width="1200" height="600"></canvas>
+
+        <!-- Game UI Overlay -->
+        <div class="game-ui">
+            <div id="startScreen" class="screen">
+                <h2>Life of Iron Man</h2>
+                <p>Use WASD or Arrow Keys to move</p>
+                <p>Press SPACEBAR to shoot</p>
+                <p>Survive as long as possible!</p>
+                <button id="startBtn">Start Game</button>
+            </div>
+
+            <div id="gameOverScreen" class="screen hidden">
+                <h2>Game Over</h2>
+                <p>Final Score: <span id="finalScore">0</span></p>
+                <button id="restartBtn">Restart Game</button>
+            </div>
+
+            <div id="pauseScreen" class="screen hidden">
+                <h2>Game Paused</h2>
+                <p>Press P to resume</p>
+            </div>
+        </div>
+
+        <!-- Controls Info -->
+        <div class="controls-info">
+            <div class="control-item">
+                <span class="key">WASD / ↑↓←→</span>
+                <span class="action">Move Iron Man</span>
+            </div>
+            <div class="control-item">
+                <span class="key">SPACEBAR</span>
+                <span class="action">Shoot Laser</span>
+            </div>
+            <div class="control-item">
+                <span class="key">P</span>
+                <span class="action">Pause Game</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

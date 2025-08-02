@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.game-header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.score-container {
+    display: flex;
+    gap: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.score-container span {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid #ffd93d;
+    box-shadow: 0 0 10px rgba(255, 217, 61, 0.3);
+}
+
+#gameCanvas {
+    border: 3px solid #ffd93d;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #87ceeb 0%, #4682b4 30%, #2f4f4f 100%);
+    box-shadow: 0 0 30px rgba(255, 217, 61, 0.5);
+    position: relative;
+}
+
+.game-ui {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.screen {
+    background: rgba(0, 0, 0, 0.9);
+    border: 3px solid #ffd93d;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    min-width: 400px;
+    box-shadow: 0 0 50px rgba(255, 217, 61, 0.8);
+}
+
+.screen.hidden {
+    display: none;
+}
+
+.screen h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.screen p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+.screen button {
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.screen button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 217, 61, 0.8);
+}
+
+.screen button:active {
+    transform: scale(0.95);
+}
+
+.controls-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.control-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.key {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ffd93d;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    min-width: 80px;
+    text-align: center;
+}
+
+.action {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+    #gameCanvas {
+        width: 1000px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 1024px) {
+    #gameCanvas {
+        width: 800px;
+        height: 400px;
+    }
+    
+    .game-header h1 {
+        font-size: 2rem;
+    }
+    
+    .controls-info {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        padding: 10px;
+    }
+    
+    #gameCanvas {
+        width: 600px;
+        height: 300px;
+    }
+    
+    .screen {
+        min-width: 300px;
+        padding: 30px;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Animation Classes */
+.explosion {
+    animation: explode 0.5s ease-out;
+}
+
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.7; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+.power-up {
+    animation: powerUp 0.3s ease-out;
+}
+
+@keyframes powerUp {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
